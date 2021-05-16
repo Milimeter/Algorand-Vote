@@ -1,12 +1,14 @@
 import 'package:algorand_vote/constants/firebase.dart';
 import 'package:algorand_vote/models/user.dart';
-import 'package:algorand_vote/screen/home/home_screen.dart';
-import 'package:algorand_vote/screen/home/intro_screen.dart';
+import 'package:algorand_vote/screen/drawer/home.dart';
+import 'package:algorand_vote/screen/intro2.dart';
 import 'package:algorand_vote/widget/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:algorand_vote/screen/intro.dart';
 
 class UserController extends GetxController {
   static UserController instance = Get.find();
@@ -17,7 +19,7 @@ class UserController extends GetxController {
   TextEditingController phoneNoTextEditingController = TextEditingController();
   Rx<User> firebaseUser;
   String usersCollection = "users";
-  // final _storage = GetStorage();
+  final _storage = GetStorage();
   Rx<UserData> userData = UserData().obs;
   @override
   void onReady() {
@@ -28,15 +30,16 @@ class UserController extends GetxController {
   }
 
   setInitialScreen(User user) {
-    // bool onInstall = _storage.read("FreshInstall");
-    // if (onInstall == true || onInstall == null) {
-    //   Get.offAll(OnBoarding());
-    // } else {
-    if (user == null) {
+    bool onInstall = _storage.read("FreshInstall");
+    if (onInstall == true || onInstall == null) {
       Get.offAll(IntroScreen());
     } else {
-      userData.bindStream(userDataStream());
-      Get.offAll(Home());
+      if (user == null) {
+        Get.offAll(IntroLogin());
+      } else {
+        userData.bindStream(userDataStream());
+        Get.offAll(Home());
+      }
     }
   }
 
