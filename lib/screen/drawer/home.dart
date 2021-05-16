@@ -201,7 +201,7 @@ class RPSCustomPainter extends CustomPainter {
         size.width * 0.8875000,
         size.height * 0.8258333,
         size.width * 0.6728125,
-        size.height * 0.6691667,
+        size.height * 0.6691667, 
         size.width * 0.5662500,
         size.height * 0.6700000);
     path_0.quadraticBezierTo(size.width * 0.2500000, size.height * 0.5300000,
