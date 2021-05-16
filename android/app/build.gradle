@@ -65,7 +65,7 @@ def keystoreProperties = new Properties()
     }
 }
 
-flutter {
+flutter { 
     source '../..'
 }
 

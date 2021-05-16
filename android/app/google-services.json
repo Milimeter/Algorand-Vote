@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:506262212323:android:c8b1d54ae831646fd1bfd6",
+        "mobilesdk_app_id": "1:506262212323:android:c8b1d54ae831646fd1bfd6", 
         "android_client_info": {
           "package_name": "com.example.algorand_vote"
         }
