@@ -60,17 +60,14 @@ class Login extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  FontAwesomeIcons.google,
-                  color: Colors.blue[900],
-                ),
-                SizedBox(width: 20),
-                Icon(FontAwesomeIcons.facebook, color: Colors.orangeAccent),
-              ],
-            ),
+             Icon( FontAwesomeIcons.google, color: Colors.blue[900],),
+             SizedBox(width: 20),
+             Icon(FontAwesomeIcons.facebook, color: Colors.orangeAccent),
+            ],),
           ],
         ),
       ),
     );
+ 
   }
 }

@@ -6,6 +6,8 @@ final String sisu = _getImagePath("sisu.png");
 final String login = _getImagePath("login.png");
 final String signup = _getImagePath("signup.png");
 final String cast = _getImagePath("cast.png");
-final String conduct = _getImagePath("conduct.png");
+final String conduct = _getImagePath("conduct.png"); 
+
+
 
 String _getImagePath(String imageName) => imageAssetRoot + imageName;

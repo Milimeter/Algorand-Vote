@@ -6,4 +6,4 @@ showLoading() => Get.defaultDialog(
       content: CircularProgressIndicator(),
     );
 
-dismissLoading() => Get.back();
+dismissLoading() => Get.back(); 

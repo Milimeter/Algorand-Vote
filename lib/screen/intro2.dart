@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class IntroLogin extends StatelessWidget {
+ 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(alignment: Alignment.center, children: [
         Positioned(
@@ -17,7 +18,7 @@ class IntroLogin extends StatelessWidget {
             children: [
               SizedBox(
                 width: size.width * 0.90,
-                child: CustomButton(
+                              child: CustomButton(
                   onTap: () => Get.to(Login()),
                   text: "Sign In",
                 ),
