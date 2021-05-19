@@ -11,7 +11,8 @@ void main() async {
   await initialization.then((value) {
     Get.put(UserController());
     Get.put(VoteController());
-    Get.put(AppController()); 
+    Get.put(AppController());
+    //Get.put(AlgorandController());
   });
 
   runApp(GetMaterialApp(

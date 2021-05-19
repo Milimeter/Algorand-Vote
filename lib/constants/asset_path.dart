@@ -6,7 +6,13 @@ final String sisu = _getImagePath("sisu.png");
 final String login = _getImagePath("login.png");
 final String signup = _getImagePath("signup.png");
 final String cast = _getImagePath("cast.png");
-final String conduct = _getImagePath("conduct.png"); 
+final String conduct = _getImagePath("conduct.png");
+final String user = _getImagePath("user.png"); 
+final String person = _getImagePath("person.png");
+final String finegirl = _getImagePath("finegirl.png");
+final String duhh = _getImagePath("duhh.png");
+
+
 
 
 

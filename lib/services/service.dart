@@ -41,7 +41,7 @@ void markVote(String voteId, String option) async {
   });
 }
 
-void retrieveMarkedVoteFromFirestore({String voteId,}) {
+void retrieveMarkedVoteFromFirestore({String voteId= '',}) {
   // Retrieve updated doc from server
   FirebaseFirestore.instance
       .collection(kVotes)

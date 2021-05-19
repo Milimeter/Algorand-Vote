@@ -74,9 +74,8 @@ class IntroScreen extends StatelessWidget {
       ),
 
       /// This function works when you will complete `OnBoarding`
-      function: () async{
-        await box.write("FreshInstall", false);
-        
+      function: () async {
+         box.write("FreshInstall", false);
 
         Get.to(IntroLogin());
       },
