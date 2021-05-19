@@ -1,7 +1,5 @@
 import 'package:algorand_vote/constants/asset_path.dart';
-import 'package:algorand_vote/controller/app_controller.dart';
 import 'package:algorand_vote/controller/user_controller.dart';
-import 'package:algorand_vote/widget/custom_button.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
