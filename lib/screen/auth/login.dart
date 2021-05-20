@@ -35,6 +35,7 @@ class Login extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Form(
+          key: _formKey,
           child: Column(
             children: [
               SizedBox(height: 20),
@@ -62,11 +63,9 @@ class Login extends StatelessWidget {
               SizedBox(height: 15),
               TextFormField(
                 validator: (password) {
-                  Pattern pattern =
-                      r'^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$';
-                  RegExp regex = new RegExp(pattern);
-                  if (!regex.hasMatch(password))
-                    return 'At least one letter, At least one number, and be longer than six charaters';
+                
+                  if (password.isEmpty)
+                    return 'Field cannot be Empty';
                   else
                     return null;
                 },

@@ -1,18 +1,25 @@
 import 'package:algorand_vote/constants/asset_path.dart';
+import 'package:algorand_vote/screen/control/donate.dart';
 import 'package:algorand_vote/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:get/get.dart';
 
 class VoteSuccess extends StatelessWidget {
+  final String text1;
+  final String text2;
+  final String text3;
+
+  const VoteSuccess({Key key, this.text1, this.text2, this.text3})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
-   
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
           Container(
-            height: size.height * 70,
+            height: size.height * 0.90,
             width: size.width,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -61,10 +68,19 @@ class VoteSuccess extends StatelessWidget {
               ),
             ),
           ),
-          CustomButton(
-            text: "Donate",
-            onTap: () {},
-            bgColor: Colors.deepPurple,
+          SizedBox(height: 18),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomButton(
+              text: "Donate",
+              onTap: () {
+                Get.to(Donate(
+                  text1: text1,
+                  text2: text3,
+                ));
+              },
+              bgColor: Colors.deepPurple,
+            ),
           )
         ],
       ),

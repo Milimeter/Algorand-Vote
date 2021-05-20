@@ -102,66 +102,68 @@ class Donate extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(18),
               ),
-              child: Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 10),
-                    height: 60,
-                    width: 90,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(11),
-                      image: DecorationImage(image: AssetImage(finegirl)),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    text1,
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  Text(
-                    text2,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                      Icon(Icons.star, color: Colors.blue, size: 20),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  walletContainer(),
-                  SizedBox(height: 30),
-                  Form(
-                    key: _formKey,
-                    child: Padding(
-                      padding: const EdgeInsets.all(17.0),
-                      child: TextFormField(
-                        validator: (value) =>
-                            value.isEmpty ? " Field Cannot be Empty" : null,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Input Amount",
-                          prefixIcon:
-                              Image.asset(algorand, width: 10, height: 15),
-                        ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      height: 60,
+                      width: 90,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(11),
+                        image: DecorationImage(image: AssetImage(finegirl)),
                       ),
                     ),
-                  )
-                ],
+                    SizedBox(height: 10),
+                    Text(
+                      text1,
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 19,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      text2,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 19,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                        Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                        Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                        Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                        Icon(Icons.star, color: Colors.blue, size: 20),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    walletContainer(),
+                    SizedBox(height: 30),
+                    Form(
+                      key: _formKey,
+                      child: Padding(
+                        padding: const EdgeInsets.all(17.0),
+                        child: TextFormField(
+                          validator: (value) =>
+                              value.isEmpty ? " Field Cannot be Empty" : null,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "Input Amount",
+                            prefixIcon: SizedBox(
+                                height: 10, child: Image.asset(algorand)),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

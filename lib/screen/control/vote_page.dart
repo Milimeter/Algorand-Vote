@@ -6,28 +6,20 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class VoteScreen extends StatelessWidget {
+class VoteScreen extends StatefulWidget {
   final String text1;
   final String text2;
   final String text3;
 
   const VoteScreen({Key key, this.text1, this.text2, this.text3})
       : super(key: key);
-  Widget container() => Container();
 
-  _vote(context) {
-    return AwesomeDialog(
-        context: context,
-        animType: AnimType.LEFTSLIDE,
-        headerAnimationLoop: false,
-        dialogType: DialogType.SUCCES,
-        title: 'Confirm your Selection?',
-        desc: 'You have selected $text1 fot the post of $text2',
-        btnOkOnPress: () => Get.to(VoteSuccess()),
-        btnOkIcon: Icons.check_circle,
-        onDissmissCallback: () => Get.back())
-      ..show();
-  }
+  @override
+  _VoteScreenState createState() => _VoteScreenState();
+}
+
+class _VoteScreenState extends State<VoteScreen> {
+  Widget container() => Container();
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +44,7 @@ class VoteScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   AutoSizeText(
-                    text1,
+                    widget.text1,
                     style: TextStyle(
                       color: Colors.deepPurple,
                       fontSize: 20,
@@ -60,7 +52,7 @@ class VoteScreen extends StatelessWidget {
                     ),
                   ),
                   AutoSizeText(
-                    text3,
+                    widget.text3,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -81,7 +73,7 @@ class VoteScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText(
-                      "About $text1",
+                      "About ${widget.text1}",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
@@ -162,5 +154,51 @@ class VoteScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _vote(context) {
+    AwesomeDialog(
+      context: context,
+      borderSide: BorderSide(color: Colors.green, width: 2),
+      width: MediaQuery.of(context).size.width * 0.90,
+      buttonsBorderRadius: BorderRadius.all(Radius.circular(2)),
+      headerAnimationLoop: false,
+      animType: AnimType.BOTTOMSLIDE,
+      title: 'Confirm your Selection?',
+      desc: 'You have selected ${widget.text1} fot the post of ${widget.text3}',
+      showCloseIcon: true,
+      btnCancelOnPress: () {
+        //Get.back();
+      },
+      btnOkOnPress: () {
+        Get.to(VoteSuccess(
+          text1: widget.text1,
+          text2: widget.text2,
+          text3: widget.text3,
+        ));
+      },
+    )..show();
+    // return AwesomeDialog(
+    //   context: context,
+    //   animType: AnimType.LEFTSLIDE,
+    //   headerAnimationLoop: false,
+    //   dialogType: DialogType.SUCCES,
+    //   title: 'Confirm your Selection?',
+    //   desc: 'You have selected ${widget.text1} fot the post of ${widget.text2}',
+    //   btnOkOnPress: () {
+    //     print("here=======");
+    //     Navigator.push(
+    //         context,
+    //         MaterialPageRoute(
+    //             builder: (context) => VoteSuccess(
+    //                   text1: widget.text1,
+    //                   text2: widget.text2,
+    //                   text3: widget.text3,
+    //                 )));
+    //     //Get.to(VoteSuccess());
+    //   },
+    //   btnOkIcon: Icons.check_circle,
+    //   // onDissmissCallback: () => Get.back()
+    // )..show();
   }
 }
