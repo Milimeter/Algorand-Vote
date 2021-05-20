@@ -1,5 +1,7 @@
 import 'package:algorand_vote/constants/asset_path.dart';
 import 'package:algorand_vote/controller/user_controller.dart';
+import 'package:algorand_vote/screen/control/donate_list.dart';
+import 'package:algorand_vote/screen/control/vote_list.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
@@ -256,17 +258,20 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: Container(
-                        padding: const EdgeInsets.all(11.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                        ),
-                        child: AutoSizeText(
-                          text2,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
+                      child: GestureDetector(
+                        onTap: () => image == person ? Get.to(DonateList()): Get.to(VoteList()),
+                        child: Container(
+                          padding: const EdgeInsets.all(11.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                          ),
+                          child: AutoSizeText(
+                            text2,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -280,8 +285,9 @@ class HomeScreen extends StatelessWidget {
     Widget electionContainer(
             {String image, String text1, String text2, String text3}) =>
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
+            padding: const EdgeInsets.all(8.0),
             width: size.width,
             height: 100,
             decoration: BoxDecoration(
@@ -292,10 +298,11 @@ class HomeScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   backgroundImage: AssetImage(image),
-                  radius: 50,
+                  radius: 30,
                 ),
                 SizedBox(width: 12),
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AutoSizeText(
                       text1,
@@ -353,8 +360,8 @@ class HomeScreen extends StatelessWidget {
                 margin: EdgeInsets.only(top: size.height * 0.10),
                 child: Column(
                   children: [
-                    AutoSizeText(
-                      _userController.userData.value.name?? "Welcome User",
+                    Text(
+                      _userController.userData.value.name ?? "Welcome User",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,

@@ -25,11 +25,9 @@ class UserData {
   });
 
   UserData.fromSnapshot(DocumentSnapshot snapshot) {
-    name = snapshot.get(ID);
+    uid = snapshot.get(ID);
     email = snapshot.get(EMAIL);
-    uid = snapshot.get(NAME);
+    name = snapshot.get(NAME);
     password = snapshot.get(PASSWORD);
-    phoneNumber = snapshot.get(PHONENO);
-    username = snapshot.get(USERNAME);
   }
 }

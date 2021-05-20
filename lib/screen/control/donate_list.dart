@@ -1,20 +1,19 @@
 import 'package:algorand_vote/constants/asset_path.dart';
-import 'package:algorand_vote/screen/control/vote_page.dart';
+import 'package:algorand_vote/screen/control/donate.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class VoteList extends StatelessWidget {
+class DonateList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     Widget electionContainer(
             {String image, String text1, String text2, String text3}) =>
         GestureDetector(
-          onTap: () => Get.to(VoteScreen(
+          onTap: () => Get.to(Donate(
             text1: text1,
-            text2: text2,
-            text3: text3,
+            text2: text3,
           )),
           child: Padding(
             padding: const EdgeInsets.all(10.0),

@@ -1,15 +1,29 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:algorand_vote/controller/algorand_controller.dart';
 import 'package:algorand_vote/screen/drawer/home.dart';
-import 'package:algorand_vote/services/bloc/wallet_bloc.dart';
 import 'package:algorand_vote/widget/wallet_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:provider/provider.dart';
 
 class AlgorandSetup extends StatelessWidget {
-  static String routeName = '/wallet';
   final box = GetStorage();
+  final AlgorandController _algorandController = Get.find();
+  createWallet() async {
+    var account = await _algorandController.createAlgorandWallet();
+    if (account != null) {
+      box.write("walletCreated", true);
+      Get.offAll(HomeScreen());
+    }
+  }
+
+  importWallet(input) async {
+    var account = await _algorandController.restoreAccount(input);
+    if (account != null) {
+      box.write("walletCreated", true);
+      Get.offAll(HomeScreen());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +49,8 @@ class AlgorandSetup extends StatelessWidget {
             Text(
               'Create or import a wallet to start sending and receiving digital currency',
               style: Theme.of(context).textTheme.bodyText1?.copyWith(
-               color: Colors.deepPurple,
-              ),
+                    color: Colors.deepPurple,
+                  ),
             ),
             Spacer(),
             WalletCard(
@@ -52,9 +66,7 @@ class AlgorandSetup extends StatelessWidget {
                 );
 
                 if (result == OkCancelResult.ok) {
-                  context.read<WalletBloc>().createWallet();
-                  box.write("walletCreated", true);
-                  Get.offAll(HomeScreen());
+                  createWallet();
                 }
               },
             ),
@@ -81,8 +93,7 @@ class AlgorandSetup extends StatelessWidget {
                   );
 
                   if (input != null && input.length > 0) {
-                    context.read<WalletBloc>().importWallet(input[0]);
-                    box.write("walletCreated", true);
+                    importWallet(input);
                   }
                 }
               },

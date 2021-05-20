@@ -40,115 +40,123 @@ class VoteScreen extends StatelessWidget {
             width: size.width,
             color: Colors.blue[800],
           ),
-          Container(
-            margin: EdgeInsets.only(top: 200),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(finegirl),
-                  radius: 150,
-                ),
-                AutoSizeText(
-                  text1,
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              margin: EdgeInsets.only(top: 200),
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage(finegirl),
+                    radius: 50,
                   ),
-                ),
-                AutoSizeText(
-                  text3,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(height: 20),
+                  AutoSizeText(
+                    text1,
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                    Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                    Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                    Icon(Icons.star, color: Colors.deepPurple, size: 20),
-                    Icon(Icons.star, color: Colors.blue, size: 20),
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: AutoSizeText(
-                    "About $text1",
+                  AutoSizeText(
+                    text3,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-                AutoSizeText(
-                  " is an American politician, conservative talk radio host, former social worker, and former 2020 Republican presidential candidate who served one term in the United States House of Representatives",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Container(
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.purple[300],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  SizedBox(height: 40),
+                  Row(
                     children: [
-                      Column(
-                        children: [
-                          AutoSizeText(
-                            "Experience",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8),
-                          AutoSizeText(
-                            "Yes",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          AutoSizeText(
-                            "Region",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 8),
-                          AutoSizeText(
-                            "Kabal, Senegal",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                      Icon(Icons.star, color: Colors.deepPurple, size: 20),
+                      Icon(Icons.star, color: Colors.blue, size: 20),
                     ],
                   ),
-                ),
-                SizedBox(height: 20),
-                CustomButton(
-                  text: "Continue",
-                  onTap: () => _vote(context),
-                  bgColor: Colors.deepPurple,
-                )
-              ],
+                  SizedBox(height: 20),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: AutoSizeText(
+                      "About $text1",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  AutoSizeText(
+                    " is an American politician, conservative talk radio host, former social worker, and former 2020 Republican presidential candidate who served one term in the United States House of Representatives",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    width: size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.purple[300],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            AutoSizeText(
+                              "Experience",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            AutoSizeText(
+                              "Yes",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            AutoSizeText(
+                              "Region",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            AutoSizeText(
+                              "Kabal, Senegal",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 40),
+                  CustomButton(
+                    text: "Continue",
+                    onTap: () => _vote(context),
+                    bgColor: Colors.deepPurple,
+                  )
+                ],
+              ),
             ),
           )
         ],

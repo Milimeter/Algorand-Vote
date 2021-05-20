@@ -11,6 +11,7 @@ final String user = _getImagePath("user.png");
 final String person = _getImagePath("person.png");
 final String finegirl = _getImagePath("finegirl.png");
 final String duhh = _getImagePath("duhh.png");
+final String algorand = _getImagePath("algorand.png");
 
 
 

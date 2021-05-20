@@ -3,13 +3,10 @@ import 'package:algorand_vote/models/user.dart';
 import 'package:algorand_vote/screen/control/algorand_setup.dart';
 import 'package:algorand_vote/screen/drawer/home.dart';
 import 'package:algorand_vote/screen/intro2.dart';
-import 'package:algorand_vote/services/algo_services.dart';
-import 'package:algorand_vote/services/bloc/wallet_bloc.dart';
 import 'package:algorand_vote/widget/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:algorand_vote/screen/intro.dart';
@@ -46,19 +43,14 @@ class UserController extends GetxController {
           userData.bindStream(userDataStream());
           Get.offAll(HomeScreen());
         } else {
-          provideWalletPage();
-          // Get.offAll(AlgorandSetup());
+          //provideWalletPage();
+           Get.offAll(AlgorandSetup());
         }
       }
     }
   }
 
-  Widget provideWalletPage() {
-    return BlocProvider(
-      create: (_) => WalletBloc(accountRepository: accountRepository)..start(),
-      child: AlgorandSetup(),
-    );
-  }
+  
 
   signIn() async {
     showLoading();

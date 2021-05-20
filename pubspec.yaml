@@ -42,14 +42,7 @@ dependencies:
   flutter_advanced_drawer: ^1.1.0
   awesome_dialog:
   algorand_dart: ^0.0.1-dev.1
-  # Hive - database
-  hive: ^2.0.0
-  hive_flutter: ^1.0.0
-  rxdart: ^0.26.0
-  provider: ^5.0.0
-  bloc: ^7.0.0-nullsafety.3
-  flutter_bloc: ^7.0.0-nullsafety.5
-  equatable: ^2.0.0
+ 
   adaptive_dialog: ^0.10.0+5
 
 dev_dependencies:
