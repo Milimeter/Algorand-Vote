@@ -372,7 +372,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     customContainer(
-                      image: user,
+                      image: personn,
                       text1: "Click here to Vote",
                       text2: "Vote now",
                     ),
