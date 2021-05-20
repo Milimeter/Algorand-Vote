@@ -15,7 +15,7 @@ class WebviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wikipedia Explorer'),
+        title: const Text('Algorand'),
         backgroundColor: Colors.deepPurple,
         // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
         actions: <Widget>[
@@ -24,6 +24,7 @@ class WebviewPage extends StatelessWidget {
         ],
       ),
       body: WebView(
+        javascriptMode: JavascriptMode.unrestricted,
         initialUrl: url,
         onWebViewCreated: (WebViewController webViewController) {
           _controller.complete(webViewController);
