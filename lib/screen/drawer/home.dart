@@ -2,6 +2,7 @@ import 'package:algorand_vote/constants/asset_path.dart';
 import 'package:algorand_vote/controller/user_controller.dart';
 import 'package:algorand_vote/screen/control/donate_list.dart';
 import 'package:algorand_vote/screen/control/vote_list.dart';
+import 'package:algorand_vote/screen/control/webview.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
@@ -259,7 +260,9 @@ class HomeScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
-                        onTap: () => image == person ? Get.to(DonateList()): Get.to(VoteList()),
+                        onTap: () => image == person
+                            ? Get.to(DonateList())
+                            : Get.to(VoteList()),
                         child: Container(
                           padding: const EdgeInsets.all(11.0),
                           decoration: BoxDecoration(
@@ -483,12 +486,30 @@ class HomeScreen extends StatelessWidget {
                 ListTile(
                   onTap: () {},
                   leading: Icon(Icons.favorite),
-                  title: Text('Favourites'),
+                  title: Text('Switch'),
                 ),
                 ListTile(
                   onTap: () {},
                   leading: Icon(Icons.settings),
                   title: Text('Settings'),
+                ),
+                ListTile(
+                  onTap: () {
+                    Get.to(WebviewPage(
+                      url: "https://wallet.myalgo.com/",
+                    ));
+                  },
+                  leading: Icon(Icons.web_asset),
+                  title: Text('Algo Wallet'),
+                ),
+                ListTile(
+                  onTap: () {
+                     Get.to(WebviewPage(
+                      url: "https://testnet.algoexplorer.io/",
+                    ));
+                  },
+                  leading: Icon(Icons.web_asset),
+                  title: Text('Testnet Explorer'),
                 ),
                 Spacer(),
                 DefaultTextStyle(

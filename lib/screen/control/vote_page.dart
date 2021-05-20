@@ -143,7 +143,7 @@ class _VoteScreenState extends State<VoteScreen> {
                   ),
                   SizedBox(height: 40),
                   CustomButton(
-                    text: "Continue",
+                    text: "Vote",
                     onTap: () => _vote(context),
                     bgColor: Colors.deepPurple,
                   )
