@@ -504,12 +504,19 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
-                     Get.to(WebviewPage(
+                    Get.to(WebviewPage(
                       url: "https://testnet.algoexplorer.io/",
                     ));
                   },
                   leading: Icon(Icons.web_asset),
                   title: Text('Testnet Explorer'),
+                ),
+                ListTile(
+                  onTap: () {
+                    _userController.signOut();
+                  },
+                  leading: Icon(Icons.exit_to_app_sharp),
+                  title: Text('Log Out'),
                 ),
                 Spacer(),
                 DefaultTextStyle(
